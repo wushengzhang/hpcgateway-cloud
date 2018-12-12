@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>hpcgateway.wp</groupId>
+    <artifactId>hpcgateway-workspace</artifactId>
+    <version>1.0</version>
+  </parent>
+  <groupId>hpcgateway.wp.metaconfig</groupId>
+  <artifactId>hpcgateway-metaconfig</artifactId>
+  <version>1.0</version>
+  <name>hpcgateway-metaconfig</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    
+       
+    <dependency>
+  		<groupId>hpcgateway.wp.core</groupId>
+  		<artifactId>hpcgateway-core</artifactId>
+  		<version>1.0</version>
+  	</dependency>
+    
+  	<dependency>
+  		<groupId>hpcgateway.wp.orm</groupId>
+  		<artifactId>hpcgateway-orm</artifactId>
+  		<version>1.0</version>
+  	</dependency>
+  	
+  	<dependency>
+  		<groupId>hpcgateway.wp.acl</groupId>
+  		<artifactId>hpcgateway-acl</artifactId>
+  		<version>1.0</version>
+  	</dependency>
+  	
+  	<dependency>
+  		<groupId>hpcgateway.wp.ssh</groupId>
+  		<artifactId>hpcgateway-ssh</artifactId>
+  		<version>1.0</version>
+  	</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jdbc</artifactId>
+			<version>9.0.13</version>
+		</dependency>
+  	
+<!--
+ 	<dependency>
+	    <groupId>org.apache.tomcat</groupId>
+	    <artifactId>tomcat-jdbc</artifactId>
+	    <version>8.0.44</version>
+	    <scope>provided</scope>
+	</dependency>
+-->
+  </dependencies>
+</project>

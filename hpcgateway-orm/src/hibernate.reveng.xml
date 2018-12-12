@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+
+   <!-- parallel command execute -->
+	<table schema="public" name="cmd_execute">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="cmd_execute_id" />
+		</primary-key>
+	</table>
+		<table schema="public" name="cmd_request">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="cmd_request_id" />
+		</primary-key>
+	</table>
+	
+	<!-- collecting cluster information -->
+	<table schema="public" name="col_batch">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="col_batch_id" />
+		</primary-key>
+	</table>
+	
+	<table schema="public" name="col_info">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="col_info_id" />
+		</primary-key>
+	</table>
+	
+	<table schema="public" name="col_net">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="col_net_id" />
+		</primary-key>
+	</table>
+	
+	<!-- MetaConfig -->
+	<table schema="public" name="hpc_authentications">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_authentications_id" />
+		</primary-key>
+	</table>
+	<table schema="public" name="hpc_cluster_user">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_clstr_usr_id" />
+		</primary-key>
+	</table>
+	<table schema="public" name="hpc_clusters">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_clusters_id" />
+		</primary-key>
+
+	</table>
+	<table schema="public" name="hpc_connections">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_connections_id" />
+		</primary-key>
+
+	</table>
+	<table schema="public" name="hpc_interfaces">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_interfaces_id" />
+		</primary-key>
+
+	</table>
+	<table schema="public" name="hpc_job">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_job_id" />
+		</primary-key>
+
+	</table>
+	<table schema="public" name="hpc_node_roles">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_node_roles_id" />
+		</primary-key>
+	</table>
+	<table schema="public" name="hpc_nodes">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_nodes_id" />
+		</primary-key>
+	</table>
+	<table schema="public" name="hpc_parameters">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_parameters_id" />
+		</primary-key>
+	</table>
+	<table schema="public" name="hpc_payment">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_payment_id" />
+		</primary-key>
+	</table>
+	<table schema="public" name="hpc_properties">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_properties_id" />
+		</primary-key>
+	</table>
+	<table schema="public" name="hpc_res_ltd">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_res_ltd_id" />
+		</primary-key>
+	</table>
+	<table schema="public" name="hpc_resources">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_resources_id" />
+		</primary-key>
+	</table>
+	<table schema="public" name="hpc_rms">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_rms_id" />
+		</primary-key>
+	</table>
+	<table schema="public" name="hpc_role_rights">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_rolerights_id" />
+		</primary-key>
+	</table>
+	<table schema="public" name="hpc_roles">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_roles_id" />
+		</primary-key>
+	</table>
+	<table schema="public" name="hpc_user">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_user_id" />
+		</primary-key>
+	</table>
+	
+	
+	
+  <table schema="public" name="hpc_role">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_role_id" />
+		</primary-key>
+	</table>
+	
+   <table schema="public" name="hpc_host_role">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_host_role_id" />
+		</primary-key>
+	</table>
+	
+	<table schema="public" name="hpc_role_alloc">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_role_alloc_id" />
+		</primary-key>
+	</table>
+	
+	<table schema="public" name="hpc_acl">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_acl_id" />
+		</primary-key>
+	</table>
+	
+	<table schema="public" name="hpc_authen">
+		<primary-key>
+			<generator class="native" />
+			<key-column name="hpc_authen_id" />
+		</primary-key>
+	</table>	
+</hibernate-reverse-engineering>

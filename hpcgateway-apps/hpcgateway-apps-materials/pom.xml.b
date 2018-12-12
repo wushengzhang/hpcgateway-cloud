@@ -1,0 +1,259 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>hpcgateway.wp.apps</groupId>
+		<artifactId>hpcgateway-workspace-apps</artifactId>
+		<version>1.0</version>
+	</parent>
+
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<spring.version>4.3.8.RELEASE</spring.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<groupId>hpcgateway.wp.apps.materials</groupId>
+	<artifactId>hpcgateway-workspace-apps-materials</artifactId>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+
+	<name>hpcgateway-apps-materials Maven</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
+		<dependency>
+			<groupId>hpcgateway.wp.utils</groupId>
+			<artifactId>hpcgateway-utils</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>hpcgateway.wp.metaconfig</groupId>
+			<artifactId>hpcgateway-metaconfig</artifactId>
+			<version>1.0</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>hpcgateway.wp.orm</groupId>
+			<artifactId>hpcgateway-orm</artifactId>
+			<version>1.0</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>hpcgateway.wp.ssh</groupId>
+			<artifactId>hpcgateway-ssh</artifactId>
+			<version>1.0</version>
+			<scope>compile</scope>
+		</dependency>	
+
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-messaging</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-websocket</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+<!--
+		<dependency>
+			<groupId></groupId>
+			<artifactId></artifactId>
+			<version></version>
+			<scope>compile</scope>
+		</dependency>	
+-->
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.197</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-jsr223</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.penggle</groupId>
+			<artifactId>kaptcha</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<finalName>hpcgateway-apps-materials</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+							<!--<outputDirectory>${basedir}/target/hpcgateway-desktop/js/main/</outputDirectory>-->
+									<!--<directory>${basedir}/../hpcgateway-apps/hpcgateway-apps-materials/src/main/resources/webapp/js/main/</directory>-->
+					<execution>
+						<id>copy-js</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/../../hpcgateway-desktop/target/hpcgateway-desktop/js/main/</outputDirectory>
+							<resources> 
+								<resource>
+									<directory>${basedir}/src/main/webapp/js/main/</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>              
+						</configuration>            
+					</execution>
+							<!--<outputDirectory>${basedir}/target/hpcgateway-desktop/WEB-INF/profile/default/main/</outputDirectory>-->
+									<!--<directory>${basedir}/../hpcgateway-apps/hpcgateway-apps-materials/src/main/resources/webapp/WEB-INF/profile/default/main</directory>-->
+					<execution>
+						<id>copy-profile</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/../../hpcgateway-desktop/target/hpcgateway-desktop/WEB-INF/profile/default/main/</outputDirectory>
+							<resources> 
+								<resource>
+									<directory>${basedir}/src/main/webapp/WEB-INF/profile/default/main</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>              
+						</configuration>            
+					</execution>
+					<execution>
+						<id>copy-config</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/../../hpcgateway-desktop/target/hpcgateway-desktop/WEB-INF/classes/config/</outputDirectory>
+							<resources> 
+								<resource>
+									<directory>${basedir}/src/main/webapp/WEB-INF/classes/config/</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>              
+						</configuration>            
+					</execution>
+					<execution>
+						<id>copy-db</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/../../hpcgateway-desktop/target/hpcgateway-desktop/WEB-INF/data/</outputDirectory>
+							<resources> 
+								<resource>
+									<directory>${basedir}/src/main/webapp/WEB-INF/data/</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>              
+						</configuration>            
+					</execution>
+<!--
+					<execution>
+						<id>copy-jar</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/../../hpcgateway-desktop/target/hpcgateway-desktop/WEB-INF/classes/</outputDirectory>
+							<resources> 
+								<resource>
+									<directory>${basedir}/target/classes/</directory>
+									<include>${project.build.finalName}.jar</include>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+-->
+				</executions>
+			</plugin>
+<!--
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.6.0</version>
+				<executions>
+					<execution>
+						<id>clean-myself</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>exec</goal>
+ 						</goals>
+						<configuration>
+							<executable>bash</executable>
+							<commandlineArgs>${basedir}/clear-myself.sh</commandlineArgs>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+-->
+			<plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<configuration>
+					<verbose>true</verbose>
+					<overwrite>true</overwrite>
+					<configurationFile>${basedir}/src/main/resources/generatorConfig.xml</configurationFile>
+				</configuration>
+				<executions>
+					<execution>
+						<id>mybatis-generator</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+    				<groupId>com.h2database</groupId>
+				    <artifactId>h2</artifactId>
+			 	  	<version>1.4.197</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+</project>

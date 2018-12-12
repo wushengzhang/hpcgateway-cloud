@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 27, 2018 1:18:53 AM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="hpcgateway.wp.orm.hibernate.mapping.CmdExecute" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="cmd_execute">
+        <id name="cmdExecuteId" type="java.lang.Long">
+            <column name="cmd_execute_id"/>
+            <generator class="increment"/>
+        </id>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.CmdRequest" embed-xml="true" fetch="select" insert="true" name="cmdRequest" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="cmd_request_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="cmdExecuteHost" optimistic-lock="true" type="string" unique="false">
+            <column length="16" name="cmd_execute_host" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="cmdExecuteTime" optimistic-lock="true" type="date" unique="false">
+            <column length="13" name="cmd_execute_time" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="cmdExecuteCode" optimistic-lock="true" type="string" unique="false">
+            <column length="8" name="cmd_execute_code" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="cmdExecuteMsg" optimistic-lock="true" type="string" unique="false">
+            <column length="1024" name="cmd_execute_msg" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="cmdExecuteExitStatus" optimistic-lock="true" type="int" unique="false">
+            <column name="cmd_execute_exit_status" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="cmdExecuteStderr" optimistic-lock="true" type="string" unique="false">
+            <column length="1048" name="cmd_execute_stderr" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="cmdExecuteStdout" optimistic-lock="true" type="string" unique="false">
+            <column length="8192" name="cmd_execute_stdout" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="cmdExecuteState" optimistic-lock="true" type="int" unique="false">
+            <column name="cmd_execute_state" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

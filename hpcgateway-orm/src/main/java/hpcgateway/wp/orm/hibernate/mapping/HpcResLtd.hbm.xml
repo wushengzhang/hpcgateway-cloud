@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 27, 2018 1:18:53 AM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="hpcgateway.wp.orm.hibernate.mapping.HpcResLtd" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="hpc_res_ltd">
+        <id name="hpcResLtdId" type="java.lang.Long">
+            <column name="hpc_res_ltd_id"/>
+            <generator class="increment"/>
+        </id>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcClusterUser" embed-xml="true" fetch="select" insert="true" name="hpcClusterUser" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_clstr_usr_id"/>
+        </many-to-one>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcResource" embed-xml="true" fetch="select" insert="true" name="hpcResource" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_resource_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="hpcResLtdNum" optimistic-lock="true" type="long" unique="false">
+            <column name="hpc_res_ltd_num" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcResLtdUnit" optimistic-lock="true" type="string" unique="false">
+            <column length="8" name="hpc_res_ltd_unit" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

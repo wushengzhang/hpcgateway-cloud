@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 27, 2018 1:18:53 AM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="hpcgateway.wp.orm.hibernate.mapping.ColNet" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="col_net">
+        <id name="colNetId" type="java.lang.Long">
+            <column name="col_net_id"/>
+            <generator class="increment"/>
+        </id>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.ColInfo" embed-xml="true" fetch="select" insert="true" name="colInfo" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="col_info_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="colNetName" optimistic-lock="true" type="string" unique="false">
+            <column length="24" name="col_net_name" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="colNetIdentifier" optimistic-lock="true" type="string" unique="false">
+            <column length="96" name="col_net_identifier" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="colNetIp" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="col_net_ip"/>
+        </property>
+        <property generated="never" lazy="false" name="colNetBootproto" optimistic-lock="true" type="string" unique="false">
+            <column length="16" name="col_net_bootproto"/>
+        </property>
+        <property generated="never" lazy="false" name="colNetOnboot" optimistic-lock="true" type="string" unique="false">
+            <column length="16" name="col_net_onboot"/>
+        </property>
+        <property generated="never" lazy="false" name="colNetNetmask" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="col_net_netmask"/>
+        </property>
+        <property generated="never" lazy="false" name="colNetMtu" optimistic-lock="true" type="string" unique="false">
+            <column length="8" name="col_net_mtu"/>
+        </property>
+        <property generated="never" lazy="false" name="colNetBroadcast" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="col_net_broadcast"/>
+        </property>
+        <property generated="never" lazy="false" name="colNetGateway" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="col_net_gateway"/>
+        </property>
+        <property generated="never" lazy="false" name="colNetHostnamealias" optimistic-lock="true" type="string" unique="false">
+            <column length="128" name="col_net_hostnamealias"/>
+        </property>
+    </class>
+</hibernate-mapping>

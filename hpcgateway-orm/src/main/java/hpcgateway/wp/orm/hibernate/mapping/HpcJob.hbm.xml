@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 27, 2018 1:18:53 AM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="hpcgateway.wp.orm.hibernate.mapping.HpcJob" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="hpc_job">
+        <id name="hpcJobId" type="java.lang.Long">
+            <column name="hpc_job_id"/>
+            <generator class="increment"/>
+        </id>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcApp" embed-xml="true" fetch="select" insert="true" name="hpcApp" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_app_id"/>
+        </many-to-one>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcCloudUser" embed-xml="true" fetch="select" insert="true" name="hpcCloudUserByHpcJobSubmitUser" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_job_submit_user" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcCloudUser" embed-xml="true" fetch="select" insert="true" name="hpcCloudUserByHpcHobPaidUser" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_hob_paid_user" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcCluster" embed-xml="true" fetch="select" insert="true" name="hpcCluster" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_cluster_id"/>
+        </many-to-one>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcClusterUser" embed-xml="true" fetch="select" insert="true" name="hpcClusterUser" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_clstr_usr_id"/>
+        </many-to-one>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcJobPrice" embed-xml="true" fetch="select" insert="true" name="hpcJobPrice" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_job_price_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="hpcJobName" optimistic-lock="true" type="string" unique="false">
+            <column length="1024" name="hpc_job_name" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcJobEnd" optimistic-lock="true" type="date" unique="false">
+            <column length="13" name="hpc_job_end"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcJobStart" optimistic-lock="true" type="date" unique="false">
+            <column length="13" name="hpc_job_start"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcJobCores" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="hpc_job_cores"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcJobHosts" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="hpc_job_hosts"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcJobNumber" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="hpc_job_number"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcJobPrice_1" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="hpc_job_price" precision="8"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcJobUnit" optimistic-lock="true" type="string" unique="false">
+            <column length="24" name="hpc_job_unit"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcJobAmount" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="hpc_job_amount" not-null="true" precision="12"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcJobState" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="hpc_job_state" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

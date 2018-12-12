@@ -1,0 +1,9 @@
+#!/bin/hash
+sed -i 's/com.jcraft/hpcgateway.wp.net.ssh/g' *.java
+sed -i 's/com.jcraft/hpcgateway.wp.net.ssh/g' jce/*.java
+sed -i 's/com.jcraft/hpcgateway.wp.net.ssh/g' jcraft/*.java
+sed -i 's/com.jcraft/hpcgateway.wp.net.ssh/g' jgss/*.java
+sed -i 's/hpcgateway.wp.net.ssh.jzlib/hpcgateway.wp.util.jzlib/g' *.java
+sed -i 's/hpcgateway.wp.net.ssh.jzlib/hpcgateway.wp.util.jzlib/g' jce/*.java
+sed -i 's/hpcgateway.wp.net.ssh.jzlib/hpcgateway.wp.util.jzlib/g' jcraft/*.java
+sed -i 's/hpcgateway.wp.net.ssh.jzlib/hpcgateway.wp.util.jzlib/g' jgss/*.java

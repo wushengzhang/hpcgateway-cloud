@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>hpcgateway.wp</groupId>
+		<artifactId>hpcgateway-workspace</artifactId>
+		<version>1.0</version>
+	</parent>
+	<groupId>hpcgateway.wp.desktop</groupId>
+	<artifactId>hpcgateway-desktop</artifactId>
+	<version>1.0</version>
+	<packaging>war</packaging>
+	
+	<name>hpcgateway-desktop Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	
+	<dependencies>
+		<dependency>
+			<groupId>hpcgateway.wp.core</groupId>
+			<artifactId>hpcgateway-core</artifactId>
+			<version>1.0</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>hpcgateway.wp.acl</groupId>
+			<artifactId>hpcgateway-acl</artifactId>
+			<version>1.0</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>hpcgateway.wp.orm</groupId>
+			<artifactId>hpcgateway-orm</artifactId>
+			<version>1.0</version>
+			<scope>compile</scope>
+		</dependency>
+<!--
+		<dependency>
+			<groupId>hpcgateway.wp.apps.materials</groupId>
+			<artifactId>hpcgateway-workspace-apps-materials</artifactId>
+			<version>1.0</version>
+			<scope>compile</scope>
+		</dependency>
+-->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-jsr223</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>hpcgateway-desktop</finalName>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>3.1.0</version>
+					<executions>
+						<execution>
+							<id>assembly-package</id>
+							<phase>package</phase>
+							<goals>
+								<goal>single</goal>
+							</goals>
+						</execution>
+					</executions>
+          <configuration>
+						<finalName>hpcgateway</finalName>
+            <descriptors>
+              <descriptor>
+									${basedir}/src/main/assembly/package.xml
+							</descriptor>
+            </descriptors>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+		
+	</build>
+</project>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 27, 2018 1:18:53 AM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="hpcgateway.wp.orm.hibernate.mapping.HpcGroup" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="hpc_group">
+        <id name="hpcGroupId" type="java.lang.Long">
+            <column name="hpc_group_id"/>
+            <generator class="increment"/>
+        </id>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcGroup" embed-xml="true" fetch="select" insert="true" name="hpcGroup" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_group_parent"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="hpcGroupName" optimistic-lock="true" type="string" unique="false">
+            <column length="128" name="hpc_group_name" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcGroupCode" optimistic-lock="true" type="string" unique="false">
+            <column length="16" name="hpc_group_code"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcGroupDesc" optimistic-lock="true" type="string" unique="false">
+            <column length="1024" name="hpc_group_desc"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcGroupAllocs" optimistic-lock="true" sort="unsorted" table="hpc_group_alloc">
+            <key on-delete="noaction">
+                <column name="hpc_group_id"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcGroupAlloc" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcGroups" optimistic-lock="true" sort="unsorted" table="hpc_group">
+            <key on-delete="noaction">
+                <column name="hpc_group_parent"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcGroup" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcJobPrices" optimistic-lock="true" sort="unsorted" table="hpc_job_price">
+            <key on-delete="noaction">
+                <column name="hpc_group_id"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcJobPrice" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

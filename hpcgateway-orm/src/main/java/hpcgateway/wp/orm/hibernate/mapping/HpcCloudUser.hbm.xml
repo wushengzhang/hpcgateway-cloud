@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 27, 2018 1:18:53 AM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="hpcgateway.wp.orm.hibernate.mapping.HpcCloudUser" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="hpc_cloud_user">
+        <id name="hpcUserId" type="long">
+            <column name="hpc_user_id"/>
+            <generator class="increment"/>
+        </id>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcCloudUser" embed-xml="true" fetch="select" insert="true" name="hpcCloudUser" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_user_askto"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="hpcUserName" optimistic-lock="true" type="string" unique="false">
+            <column length="512" name="hpc_user_name" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcUserPasswd" optimistic-lock="true" type="string" unique="false">
+            <column length="512" name="hpc_user_passwd"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcUserBalance" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="hpc_user_balance" precision="12"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcUserCharged" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="hpc_user_charged" precision="12"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcUserConsumed" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="hpc_user_consumed" precision="12"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcUserJobFee" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="hpc_user_job_fee" precision="12"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcUserJobNum" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="hpc_user_job_num"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcUserJobHosts" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="hpc_user_job_hosts"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcUserJobCores" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="hpc_user_job_cores"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcUserJobTime" optimistic-lock="true" type="date" unique="false">
+            <column length="13" name="hpc_user_job_time"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcUserStorageFee" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="hpc_user_storage_fee" precision="12"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcUserStorageCap" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="hpc_user_storage_cap" precision="12"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcUserStorageUnit" optimistic-lock="true" type="string" unique="false">
+            <column length="8" name="hpc_user_storage_unit"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcUserStorageTime" optimistic-lock="true" type="date" unique="false">
+            <column length="13" name="hpc_user_storage_time"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcCloudUsers" optimistic-lock="true" sort="unsorted" table="hpc_cloud_user">
+            <key on-delete="noaction">
+                <column name="hpc_user_askto"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcCloudUser" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcJobsForHpcJobSubmitUser" optimistic-lock="true" sort="unsorted" table="hpc_job">
+            <key on-delete="noaction">
+                <column name="hpc_job_submit_user" not-null="true"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcJob" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcGroupAllocs" optimistic-lock="true" sort="unsorted" table="hpc_group_alloc">
+            <key on-delete="noaction">
+                <column name="hpc_user_id"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcGroupAlloc" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcJobsForHpcHobPaidUser" optimistic-lock="true" sort="unsorted" table="hpc_job">
+            <key on-delete="noaction">
+                <column name="hpc_hob_paid_user" not-null="true"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcJob" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcJobPrices" optimistic-lock="true" sort="unsorted" table="hpc_job_price">
+            <key on-delete="noaction">
+                <column name="hpc_user_id"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcJobPrice" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcClusterUsers" optimistic-lock="true" sort="unsorted" table="hpc_cluster_user">
+            <key on-delete="noaction">
+                <column name="hpc_user_id"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcClusterUser" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcRoleAllocs" optimistic-lock="true" sort="unsorted" table="hpc_role_alloc">
+            <key on-delete="noaction">
+                <column name="hpc_user_id"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcRoleAlloc" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

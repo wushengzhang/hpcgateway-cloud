@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 27, 2018 1:18:53 AM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="hpcgateway.wp.orm.hibernate.mapping.HpcPayment" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="hpc_payment">
+        <id name="hpcPaymentId" type="java.lang.Long">
+            <column name="hpc_payment_id"/>
+            <generator class="increment"/>
+        </id>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcClusterUser" embed-xml="true" fetch="select" insert="true" name="hpcClusterUser" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_clstr_usr_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="hpcPaymentTime" optimistic-lock="true" type="date" unique="false">
+            <column length="13" name="hpc_payment_time" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcPaymentAmount" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="hpc_payment_amount" not-null="true" precision="10"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcPaymentBalance" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="hpc_payment_balance" not-null="true" precision="12"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 27, 2018 1:18:53 AM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="hpcgateway.wp.orm.hibernate.mapping.HpcClusterUser" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="hpc_cluster_user">
+        <id name="hpcClstrUsrId" type="java.lang.Long">
+            <column name="hpc_clstr_usr_id"/>
+            <generator class="increment"/>
+        </id>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcCloudUser" embed-xml="true" fetch="select" insert="true" name="hpcCloudUser" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_user_id"/>
+        </many-to-one>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcCluster" embed-xml="true" fetch="select" insert="true" name="hpcCluster" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_cluster_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="hpcClstrUsrName" optimistic-lock="true" type="string" unique="false">
+            <column length="256" name="hpc_clstr_usr_name"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcClstrUsrPasswd" optimistic-lock="true" type="string" unique="false">
+            <column length="256" name="hpc_clstr_usr_passwd"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcClstrUsrCrypt" optimistic-lock="true" type="string" unique="false">
+            <column length="16" name="hpc_clstr_usr_crypt"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcClstrUsrAuto" optimistic-lock="true" type="string" unique="false">
+            <column length="1" name="hpc_clstr_usr_auto"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcClstrUsrIdrsa" optimistic-lock="true" type="string" unique="false">
+            <column length="1024" name="hpc_clstr_usr_idrsa"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcClstrUsrBalance" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="hpc_clstr_usr_balance" precision="12"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcClstrUsrCharged" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="hpc_clstr_usr_charged" precision="12"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcClstrUsrConsumed" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="hpc_clstr_usr_consumed" precision="12"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcClstrUsrJobFee" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="hpc_clstr_usr_job_fee" precision="12"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcClstrUsrJobNum" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="hpc_clstr_usr_job_num"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcClstrUsrJobHosts" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="hpc_clstr_usr_job_hosts"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcClstrUsrJobCores" optimistic-lock="true" type="java.lang.Long" unique="false">
+            <column name="hpc_clstr_usr_job_cores"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcClstrUsrJobTime" optimistic-lock="true" type="date" unique="false">
+            <column length="13" name="hpc_clstr_usr_job_time"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcClstrUsrStrgFee" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="hpc_clstr_usr_strg_fee" precision="12"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcClstrUsrStrgCap" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="hpc_clstr_usr_strg_cap" precision="12"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcClstrUsrStrgUnit" optimistic-lock="true" type="string" unique="false">
+            <column length="8" name="hpc_clstr_usr_strg_unit"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcClstrUsrStrgTime" optimistic-lock="true" type="date" unique="false">
+            <column length="13" name="hpc_clstr_usr_strg_time"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcPayments" optimistic-lock="true" sort="unsorted" table="hpc_payment">
+            <key on-delete="noaction">
+                <column name="hpc_clstr_usr_id"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcPayment" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcResLtds" optimistic-lock="true" sort="unsorted" table="hpc_res_ltd">
+            <key on-delete="noaction">
+                <column name="hpc_clstr_usr_id"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcResLtd" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcJobs" optimistic-lock="true" sort="unsorted" table="hpc_job">
+            <key on-delete="noaction">
+                <column name="hpc_clstr_usr_id"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcJob" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

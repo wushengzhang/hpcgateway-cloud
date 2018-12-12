@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 27, 2018 1:18:53 AM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="hpcgateway.wp.orm.hibernate.mapping.HpcNode" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="hpc_node">
+        <id name="hpcNodeId" type="java.lang.Long">
+            <column name="hpc_node_id"/>
+            <generator class="increment"/>
+        </id>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcCluster" embed-xml="true" fetch="select" insert="true" name="hpcCluster" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_cluster_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="hpcNodeName" optimistic-lock="true" type="string" unique="false">
+            <column length="256" name="hpc_node_name" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcNodeAliasnames" optimistic-lock="true" type="string" unique="false">
+            <column length="1024" name="hpc_node_aliasnames" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcRmsForHpcRmControll" optimistic-lock="true" sort="unsorted" table="hpc_rm">
+            <key on-delete="noaction">
+                <column name="hpc_rm_controll"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcRm" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcInterfaces" optimistic-lock="true" sort="unsorted" table="hpc_interface">
+            <key on-delete="noaction">
+                <column name="hpc_node_id"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcInterface" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcParamAssigns" optimistic-lock="true" sort="unsorted" table="hpc_param_assign">
+            <key on-delete="noaction">
+                <column name="hpc_node_id"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcParamAssign" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcConnects" optimistic-lock="true" sort="unsorted" table="hpc_connect">
+            <key on-delete="noaction">
+                <column name="hpc_node_id"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcConnect" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcNodeRoleAllocs" optimistic-lock="true" sort="unsorted" table="hpc_node_role_alloc">
+            <key on-delete="noaction">
+                <column name="hpc_node_id"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcNodeRoleAlloc" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcPropertyAssigns" optimistic-lock="true" sort="unsorted" table="hpc_property_assign">
+            <key on-delete="noaction">
+                <column name="hpc_node_id"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcPropertyAssign" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcRmsForHpcRmAccount" optimistic-lock="true" sort="unsorted" table="hpc_rm">
+            <key on-delete="noaction">
+                <column name="hpc_rm_account"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcRm" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcRmsForHcRmInstall" optimistic-lock="true" sort="unsorted" table="hpc_rm">
+            <key on-delete="noaction">
+                <column name="hc_rm_install"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcRm" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcRmsForHpcRmStorage" optimistic-lock="true" sort="unsorted" table="hpc_rm">
+            <key on-delete="noaction">
+                <column name="hpc_rm_storage"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcRm" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcRmsForHpcRmSchedule" optimistic-lock="true" sort="unsorted" table="hpc_rm">
+            <key on-delete="noaction">
+                <column name="hpc_rm_schedule"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcRm" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

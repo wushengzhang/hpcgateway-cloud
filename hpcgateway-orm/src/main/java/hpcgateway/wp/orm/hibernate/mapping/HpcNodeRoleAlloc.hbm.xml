@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 27, 2018 1:18:53 AM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="hpcgateway.wp.orm.hibernate.mapping.HpcNodeRoleAlloc" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="hpc_node_role_alloc">
+        <id name="hpcNodeRoleAllocId" type="java.lang.Long">
+            <column name="hpc_node_role_alloc_id"/>
+            <generator class="increment"/>
+        </id>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcNode" embed-xml="true" fetch="select" insert="true" name="hpcNode" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_node_id"/>
+        </many-to-one>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcNodeRole" embed-xml="true" fetch="select" insert="true" name="hpcNodeRole" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_node_role_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="hpcNodeRoleAllocName" optimistic-lock="true" type="string" unique="false">
+            <column length="128" name="hpc_node_role_alloc_name" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcNodeRoleAllocPriority" optimistic-lock="true" type="int" unique="false">
+            <column name="hpc_node_role_alloc_priority" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcNodeRoleAllocDescription" optimistic-lock="true" type="string" unique="false">
+            <column length="1024" name="hpc_node_role_alloc_description"/>
+        </property>
+        <property generated="never" lazy="false" name="hpcNodeRoleAllocTime" optimistic-lock="true" type="date" unique="false">
+            <column length="13" name="hpc_node_role_alloc_time" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

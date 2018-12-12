@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>hpcgateway.wp.apps</groupId>
+		<artifactId>hpcgateway-workspace-apps</artifactId>
+		<version>1.0</version>
+	</parent>
+
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<spring.version>4.3.8.RELEASE</spring.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<groupId>hpcgateway.wp.apps.materials</groupId>
+	<artifactId>hpcgateway-workspace-apps-materials</artifactId>
+	<version>1.0</version>
+	<packaging>jar</packaging>
+
+	<name>hpcgateway-wp-apps-materials Maven</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
+		<dependency>
+			<groupId>hpcgateway.wp.utils</groupId>
+			<artifactId>hpcgateway-utils</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>hpcgateway.wp.metaconfig</groupId>
+			<artifactId>hpcgateway-metaconfig</artifactId>
+			<version>1.0</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>hpcgateway.wp.orm</groupId>
+			<artifactId>hpcgateway-orm</artifactId>
+			<version>1.0</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>hpcgateway.wp.ssh</groupId>
+			<artifactId>hpcgateway-ssh</artifactId>
+			<version>1.0</version>
+			<scope>compile</scope>
+		</dependency>	
+
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-messaging</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-websocket</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+<!--
+		<dependency>
+			<groupId></groupId>
+			<artifactId></artifactId>
+			<version></version>
+			<scope>compile</scope>
+		</dependency>	
+-->
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.197</version>
+		</dependency>
+
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-jsr223</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+
+<!--
+		<dependency>
+			<groupId>com.github.penggle</groupId>
+			<artifactId>kaptcha</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+-->
+		<dependency>
+   		 <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis</artifactId>
+   		 <version>3.4.6</version>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<finalName>hpcgateway-apps-materials</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<id>copy-profile</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/../../hpcgateway-desktop/target/hpcgateway-desktop/WEB-INF/profile</outputDirectory>
+							<resources> 
+								<resource>
+									<directory>${basedir}/src/main/webapp/WEB-INF/profile</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>              
+						</configuration>            
+					</execution>
+					<execution>
+						<id>copy-config</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/../../hpcgateway-desktop/target/hpcgateway-desktop/WEB-INF/classes/config/</outputDirectory>
+							<resources> 
+								<resource>
+									<directory>${basedir}/src/main/webapp/WEB-INF/classes/config/</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>              
+						</configuration>            
+					</execution>
+					<execution>
+						<id>copy-db</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/../../hpcgateway-desktop/target/hpcgateway-desktop/WEB-INF/data/</outputDirectory>
+							<resources> 
+								<resource>
+									<directory>${basedir}/src/main/webapp/WEB-INF/data/</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>              
+						</configuration>            
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution> 
+						<id>copy-artifact</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>${project.artifactId}</artifactId>
+									<version>${project.version}</version>
+									<type>${project.packaging}</type>
+								</artifactItem>
+							</artifactItems>
+							<outputDirectory>../../hpcgateway-desktop/target/hpcgateway-desktop/WEB-INF/lib</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

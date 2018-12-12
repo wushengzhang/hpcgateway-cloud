@@ -1,0 +1,106 @@
+
+a.disabled {
+    pointer-events: none;
+    filter: alpha(opacity=50); /*IE滤镜，透明度50%*/
+    -moz-opacity: 0.5; /*Firefox私有，透明度50%*/
+    opacity: 0.5; /*其他，透明度50%*/
+}
+        
+.backbone_view 
+{
+	width: 100%;
+	height: 100%;
+}
+
+.fixed_menu
+{
+	height: 100%;
+}
+
+.fixed_content
+{
+	position: absolute;
+	width: 100%;
+	top: 30px;
+	bottom: 0px;
+	overflow: hidden;
+}
+
+.cluster_tree
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	width: 240px;
+	overflow:auto;
+	background-color: #EFEFEF;
+	border: solid 1px black;
+}
+
+.cluster_content
+{
+	position: absolute;
+	top: 0px;
+	left: 260px;
+	bottom: 0px;
+	right: 0px;
+	clear: both;
+	overflow: auto;
+}
+
+
+.view
+{
+	
+}
+
+.view_title
+{
+	font-size: 16px;
+}
+
+.view_property 
+{
+	text-align:right;
+}
+
+.view_value
+{
+	text-align:left;
+}
+
+
+.edit_property
+{
+	text-align:right;
+}
+
+tr.chosen 
+{
+	background-color: #EEEEEE;
+}
+
+#content h1{
+    text-align: center;
+}
+#form1 p{
+    width: 200px;
+    height: 25px;
+    line-height: 25px;
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+    margin: 0;
+}
+#form1 input{
+    border: none;
+    background: #f0f0f0;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+#login{
+    color: #000;
+    border: none;
+    background: #e0e0e0;
+    border-radius: 10px;
+}

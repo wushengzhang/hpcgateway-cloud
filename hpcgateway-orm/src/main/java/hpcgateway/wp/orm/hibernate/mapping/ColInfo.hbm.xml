@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 27, 2018 1:18:53 AM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="hpcgateway.wp.orm.hibernate.mapping.ColInfo" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="col_info">
+        <id name="colInfoId" type="java.lang.Long">
+            <column name="col_info_id"/>
+            <generator class="increment"/>
+        </id>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.ColBatch" embed-xml="true" fetch="select" insert="true" name="colBatch" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="col_batch_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="colHostname" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="col_hostname" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="colInfoTimestamp" optimistic-lock="true" type="date" unique="false">
+            <column length="13" name="col_info_timestamp" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="colInfoIp" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="col_info_ip" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="colInfoPowerType" optimistic-lock="true" type="string" unique="false">
+            <column length="16" name="col_info_power_type"/>
+        </property>
+        <property generated="never" lazy="false" name="colInfoPowerCommand" optimistic-lock="true" type="string" unique="false">
+            <column name="col_info_power_command"/>
+        </property>
+        <property generated="never" lazy="false" name="colInfoPowerUser" optimistic-lock="true" type="string" unique="false">
+            <column length="16" name="col_info_power_user"/>
+        </property>
+        <property generated="never" lazy="false" name="colInfoPowerPass" optimistic-lock="true" type="string" unique="false">
+            <column length="16" name="col_info_power_pass"/>
+        </property>
+        <property generated="never" lazy="false" name="colInfoPowerStatus" optimistic-lock="true" type="char" unique="false">
+            <column length="1" name="col_info_power_status" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="colInfoPowerIdentifier" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="col_info_power_identifier"/>
+        </property>
+        <property generated="never" lazy="false" name="colInfoPowerIp" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="col_info_power_ip"/>
+        </property>
+        <property generated="never" lazy="false" name="colInfoPowerNetmask" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="col_info_power_netmask"/>
+        </property>
+        <property generated="never" lazy="false" name="colInfoPowerGateway" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="col_info_power_gateway"/>
+        </property>
+        <property generated="never" lazy="false" name="colInfoPowerHostnamealias" optimistic-lock="true" type="string" unique="false">
+            <column length="128" name="col_info_power_hostnamealias"/>
+        </property>
+        <property generated="never" lazy="false" name="colInfoState" optimistic-lock="true" type="string" unique="false">
+            <column length="16" name="col_info_state" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="colInfoStep" optimistic-lock="true" type="string" unique="false">
+            <column length="16" name="col_info_step" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="colInfoMessage" optimistic-lock="true" type="string" unique="false">
+            <column name="col_info_message"/>
+        </property>
+        <property generated="never" lazy="false" name="colInfoCleanbusy" optimistic-lock="true" type="char" unique="false">
+            <column length="1" name="col_info_cleanbusy" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="colBiosVender" optimistic-lock="true" type="string" unique="false">
+            <column length="128" name="col_bios_vender"/>
+        </property>
+        <property generated="never" lazy="false" name="colBiosVersion" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="col_bios_version"/>
+        </property>
+        <property generated="never" lazy="false" name="colBiosReleaseDate" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="col_bios_release_date"/>
+        </property>
+        <property generated="never" lazy="false" name="colSysManufacturer" optimistic-lock="true" type="string" unique="false">
+            <column length="128" name="col_sys_manufacturer"/>
+        </property>
+        <property generated="never" lazy="false" name="colSysProductName" optimistic-lock="true" type="string" unique="false">
+            <column length="128" name="col_sys_product_name"/>
+        </property>
+        <property generated="never" lazy="false" name="colSysVersion" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="col_sys_version"/>
+        </property>
+        <property generated="never" lazy="false" name="colSysSerialNumber" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="col_sys_serial_number"/>
+        </property>
+        <property generated="never" lazy="false" name="colSysUuid" optimistic-lock="true" type="string" unique="false">
+            <column length="48" name="col_sys_uuid"/>
+        </property>
+        <property generated="never" lazy="false" name="colBaseboardManufacturer" optimistic-lock="true" type="string" unique="false">
+            <column length="128" name="col_baseboard_manufacturer"/>
+        </property>
+        <property generated="never" lazy="false" name="colBaseboardProductName" optimistic-lock="true" type="string" unique="false">
+            <column length="128" name="col_baseboard_product_name"/>
+        </property>
+        <property generated="never" lazy="false" name="colBaseboardVersion" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="col_baseboard_version"/>
+        </property>
+        <property generated="never" lazy="false" name="colBaseboardSerialNumber" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="col_baseboard_serial_number"/>
+        </property>
+        <property generated="never" lazy="false" name="colChassisManufacturer" optimistic-lock="true" type="string" unique="false">
+            <column length="128" name="col_chassis_manufacturer"/>
+        </property>
+        <property generated="never" lazy="false" name="colChassisType" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="col_chassis_type"/>
+        </property>
+        <property generated="never" lazy="false" name="colChassisLock" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="col_chassis_lock"/>
+        </property>
+        <property generated="never" lazy="false" name="colChassisVersion" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="col_chassis_version"/>
+        </property>
+        <property generated="never" lazy="false" name="colChassisSerialNumber" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="col_chassis_serial_number"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="colNets" optimistic-lock="true" sort="unsorted" table="col_net">
+            <key on-delete="noaction">
+                <column name="col_info_id"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.ColNet" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

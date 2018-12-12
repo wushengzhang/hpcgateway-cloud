@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 27, 2018 1:18:53 AM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="hpcgateway.wp.orm.hibernate.mapping.HpcJobPrice" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="hpc_job_price">
+        <id name="hpcJobPriceId" type="java.lang.Long">
+            <column name="hpc_job_price_id"/>
+            <generator class="increment"/>
+        </id>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcApp" embed-xml="true" fetch="select" insert="true" name="hpcApp" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_app_id"/>
+        </many-to-one>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcCloudUser" embed-xml="true" fetch="select" insert="true" name="hpcCloudUser" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_user_id"/>
+        </many-to-one>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcCluster" embed-xml="true" fetch="select" insert="true" name="hpcCluster" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_cluster_id"/>
+        </many-to-one>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcGroup" embed-xml="true" fetch="select" insert="true" name="hpcGroup" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_group_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="hpcJobPriceValue" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="hpc_job_price_value" not-null="true" precision="12"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="hpcJobs" optimistic-lock="true" sort="unsorted" table="hpc_job">
+            <key on-delete="noaction">
+                <column name="hpc_job_price_id"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.HpcJob" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

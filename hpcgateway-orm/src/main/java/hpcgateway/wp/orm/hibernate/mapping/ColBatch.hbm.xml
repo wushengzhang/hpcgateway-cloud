@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 27, 2018 1:18:53 AM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="hpcgateway.wp.orm.hibernate.mapping.ColBatch" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="col_batch">
+        <id name="colBatchId" type="java.lang.Long">
+            <column name="col_batch_id"/>
+            <generator class="increment"/>
+        </id>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcCluster" embed-xml="true" fetch="select" insert="true" name="hpcCluster" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_cluster_id"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="colBatchName" optimistic-lock="true" type="string" unique="false">
+            <column length="48" name="col_batch_name" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="colBatchTime" optimistic-lock="true" type="date" unique="false">
+            <column length="13" name="col_batch_time" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="colBatchOperator" optimistic-lock="true" type="string" unique="false">
+            <column length="32" name="col_batch_operator" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="colBatchTotal" optimistic-lock="true" type="int" unique="false">
+            <column name="col_batch_total" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="colBatchIdle" optimistic-lock="true" type="int" unique="false">
+            <column name="col_batch_idle" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="colBatchCollecting" optimistic-lock="true" type="int" unique="false">
+            <column name="col_batch_collecting" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="colBatchSuccess" optimistic-lock="true" type="int" unique="false">
+            <column name="col_batch_success" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="colBatchError" optimistic-lock="true" type="int" unique="false">
+            <column name="col_batch_error" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="colBatchState" optimistic-lock="true" type="string" unique="false">
+            <column length="16" name="col_batch_state" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="colBatchMessage" optimistic-lock="true" type="string" unique="false">
+            <column name="col_batch_message" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="colInfos" optimistic-lock="true" sort="unsorted" table="col_info">
+            <key on-delete="noaction">
+                <column name="col_batch_id"/>
+            </key>
+            <one-to-many class="hpcgateway.wp.orm.hibernate.mapping.ColInfo" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

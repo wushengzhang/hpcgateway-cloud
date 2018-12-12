@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Aug 27, 2018 1:18:53 AM by Hibernate Tools 5.3.0.Beta2 --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="hpcgateway.wp.orm.hibernate.mapping.HpcGroupAlloc" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="hpc_group_alloc">
+        <id name="hpcGroupAllocId" type="java.lang.Long">
+            <column name="hpc_group_alloc_id"/>
+            <generator class="increment"/>
+        </id>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcCloudUser" embed-xml="true" fetch="select" insert="true" name="hpcCloudUser" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_user_id"/>
+        </many-to-one>
+        <many-to-one class="hpcgateway.wp.orm.hibernate.mapping.HpcGroup" embed-xml="true" fetch="select" insert="true" name="hpcGroup" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="hpc_group_id"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,38 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+  <id>desktop</id>
+  <formats>
+    <format>war</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+
+  <fileSets>
+
+    <!-- copy webapp/* to /  -->
+    <fileSet>
+      <directory>src/main/webapp</directory>
+			<outputDirectory>/</outputDirectory>
+    </fileSet>
+
+    <!-- copy *.class to WEB-INF/classes -->
+	  <fileSet>
+      <directory>${project.build.outputDirectory}</directory>
+      <outputDirectory>WEB-INF/classes</outputDirectory>
+    </fileSet>
+
+	  <!-- copy metaconf/src/main/webapp to / -->
+		<fileSet>
+			<directory>${project.basedir}/../hpcgateway-admin/hpcgateway-admin-metaconf/src/main/webapp</directory>
+			<outputDirectory>/</outputDirectory>
+		</fileSet>
+  </fileSets>  
+  <!-- copy dependency library to WEB-INF/lib -->
+  <dependencySets>
+  	<dependencySet>
+    	<outputDirectory>WEB-INF/lib</outputDirectory>
+    	<useProjectArtifact>false</useProjectArtifact>
+		</dependencySet>    
+  </dependencySets>
+</assembly>
+

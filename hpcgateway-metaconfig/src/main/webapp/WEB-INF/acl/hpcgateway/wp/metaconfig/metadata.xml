@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<acl>
+	<scripts>
+		<script>
+			<name>metadata</name>
+			<type>groovy</type>
+			<file>/WEB-INF/acl/hpcgateway/wp/metaconfig/metadata.groovy</file>
+		</script>
+	</scripts>
+	<authorizations>
+		<authorization>
+			<urlpattern>/metadata/.*</urlpattern>
+			<script>metadata</script>
+		</authorization>
+	</authorizations>
+</acl>

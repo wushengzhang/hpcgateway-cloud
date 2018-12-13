@@ -1,6 +1,6 @@
 (function($){
 	// define modulename
-	var module_name = "hpcgateway.apps.materials";
+	var module_name = "hpcgateway.wp.apps.materials";
 	var appMat = app.contextPath + "/wp/apps/materials";
 	// define view
 	var module = app.views.BaseView.extend({

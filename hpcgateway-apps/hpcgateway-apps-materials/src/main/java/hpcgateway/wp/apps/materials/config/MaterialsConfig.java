@@ -21,7 +21,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
+//import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import org.springframework.core.io.DefaultResourceLoader;
@@ -48,7 +48,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.zaxxer.hikari.HikariDataSource;
 import com.zaxxer.hikari.HikariConfig;
 
-@EnableAspectJAutoProxy
+//@EnableAspectJAutoProxy
 @EnableTransactionManagement
 @Configuration
 @ComponentScan(basePackages="hpcgateway.wp.apps.materials.dao.mybatis,hpcgateway.wp.apps.materials.controller,hpcgateway.wp.apps.materials.service,hpcgateway.wp.apps.materials.mappers,hpcgateway.wp.apps.materials.beans")
